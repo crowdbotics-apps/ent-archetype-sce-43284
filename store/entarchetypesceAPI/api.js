@@ -8,6 +8,24 @@ function api_docs_schema_retrieve(payload) {
     params: { lang: payload.lang }
   })
 }
+function api_v1_event_list(payload) {
+  return entarchetypesceAPI.get(`/api/v1/event/`)
+}
+function api_v1_event_create(payload) {
+  return entarchetypesceAPI.post(`/api/v1/event/`, payload.data)
+}
+function api_v1_event_retrieve(payload) {
+  return entarchetypesceAPI.get(`/api/v1/event/${payload.id}/`)
+}
+function api_v1_event_update(payload) {
+  return entarchetypesceAPI.put(`/api/v1/event/${payload.id}/`, payload.data)
+}
+function api_v1_event_partial_update(payload) {
+  return entarchetypesceAPI.patch(`/api/v1/event/${payload.id}/`, payload.data)
+}
+function api_v1_event_destroy(payload) {
+  return entarchetypesceAPI.delete(`/api/v1/event/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return entarchetypesceAPI.post(`/api/v1/login/`, payload.data)
 }
@@ -55,6 +73,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_event_list,
+  api_v1_event_create,
+  api_v1_event_retrieve,
+  api_v1_event_update,
+  api_v1_event_partial_update,
+  api_v1_event_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   rest_auth_login_create,
